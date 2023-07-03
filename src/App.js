@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ForgotPassword from "./Components/Auth/ForgotPassword";
 import Home from "./Components/Dashboard/Home";
 import "./App.css";
+import Orders from "./Components/Dashboard/Orders/Orders";
 
 function App() {
   return (

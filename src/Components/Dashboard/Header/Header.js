@@ -1,6 +1,6 @@
-import { Row, Col, Nav } from "react-bootstrap";
+import { Nav } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import { GiHamburgerMenu } from "react-icons/gi";
 import FixedSidebar from "./FixedSidebar";
@@ -9,17 +9,26 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { BsSearch } from "react-icons/bs";
 
-function Header() {
+function Header(props) {
   const [show, setShow] = useState(true);
+  let height = window.innerWidth;
+  useEffect(() => {
+    if (height <= 768) setShow(false);
+  }, [height]);
+
   return (
     <>
-      <FixedSidebar show={show} setShow={setShow} />
+      <FixedSidebar
+        setComponent={props.setComponent}
+        show={show}
+        setShow={setShow}
+      />
       <Navbar
         className="shadow mb-3 fixed-top flex-nowrap"
         bg="dark"
         variant="dark"
       >
-        <Container fluid className="text-white align-items-center">
+        <Container fluid className="text-white align-items-center ">
           <h3 className="me-5">
             <GiHamburgerMenu onClick={() => setShow(!show)} role="button" />
           </h3>
@@ -52,24 +61,3 @@ function Header() {
   );
 }
 export default Header;
-
-//  <Col className="col-auto">
-// <h3>
-// <GiHamburgerMenu onClick={() => setShow(!show)} role="button" />
-// </h3>
-// </Col>
-// <Col className="col-auto">
-// <Navbar.Brand className="me-5">Page Logo</Navbar.Brand>
-// </Col>
-// <Col className="col-auto">
-// <InputGroup>
-// <InputGroup.Text>
-//   <BsSearch />
-// </InputGroup.Text>
-// <Form.Control
-//   placeholder="Search"
-//   aria-label="Search"
-//   aria-describedby="basic-addon1"
-// />
-// </InputGroup>
-// </Col>

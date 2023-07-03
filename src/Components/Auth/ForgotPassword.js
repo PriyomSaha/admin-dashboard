@@ -19,7 +19,7 @@ function ForgotPassword() {
             </Form.Label>
             <Form.Control type="email" placeholder="username@address.com" />
           </Form.Group>
-          <Button variant="primary" type="submit" className="w-100">
+          <Button variant="dark" type="submit" className="w-100">
             Send Reset Link
           </Button>
           <div>

@@ -45,9 +45,9 @@ function Login() {
             <Form.Check type="checkbox" label="Remember Me" />
           </Form.Group>
           <Link to="/home">
-          <Button variant="primary" type="submit" className="w-100 mb-4">
-            Signin
-          </Button>
+            <Button variant="dark" type="submit" className="w-100 mb-4">
+              Signin
+            </Button>
           </Link>
           <div>
             Forgot Password ?
