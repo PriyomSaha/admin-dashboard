@@ -37,7 +37,7 @@ function FixedSidebar(props) {
   //useeffect to add active class to dashboard
   useEffect(() => {
     document.getElementById(prevComponent).classList.add("active");
-  }, []);
+  });
   return (
     <>
       <Container fluid className="remove-default-margin-padding position-start">
