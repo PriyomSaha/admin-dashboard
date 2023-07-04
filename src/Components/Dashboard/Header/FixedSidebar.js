@@ -77,7 +77,10 @@ function FixedSidebar(props) {
                       role="button"
                     >
                       <TbReport size="1.5rem" />
-                      <span className="ps-2"> {navigations[2.1]}</span>
+                      <span className={props.show ? "ps-2" : " d-none"}>
+                        {" "}
+                        {navigations[2.1]}
+                      </span>
                     </li>
                     <li
                       className="bd-links-group p-2 dashboard-side-components"
@@ -86,7 +89,10 @@ function FixedSidebar(props) {
                       role="button"
                     >
                       <VscGraphLine size="1.5rem" />
-                      <span className="ps-2"> {navigations[2.2]}</span>
+                      <span className={props.show ? "ps-2" : " d-none"}>
+                        {" "}
+                        {navigations[2.2]}
+                      </span>
                     </li>
                     <li
                       className="bd-links-group p-2 dashboard-side-components"
@@ -95,7 +101,9 @@ function FixedSidebar(props) {
                       role="button"
                     >
                       <BiSolidStarHalf size="1.5rem" />
-                      <span className="ps-2"> {navigations[2.3]}</span>
+                      <span className={props.show ? "ps-2" : " d-none"}>
+                        {navigations[2.3]}
+                      </span>
                     </li>
                   </ul>
                 </div>
