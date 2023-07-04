@@ -1,4 +1,4 @@
-import { Nav } from "react-bootstrap";
+import { Col, Dropdown, Nav, Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import { useState, useEffect } from "react";
 import Navbar from "react-bootstrap/Navbar";
@@ -8,12 +8,16 @@ import { PiUserCircleGearDuotone } from "react-icons/pi";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { BsSearch } from "react-icons/bs";
+import { TbLogout } from "react-icons/tb";
+import { FaUserCircle } from "react-icons/fa";
 
 function Header(props) {
   const [show, setShow] = useState(true);
   let height = window.innerWidth;
   useEffect(() => {
-    if (height <= 768) setShow(false);
+    if (height <= 768) {
+      setShow(false);
+    }
   }, [height]);
 
   return (
@@ -45,15 +49,48 @@ function Header(props) {
               />
             </InputGroup>
           </div>
-          <Nav className="ms-auto align-items-center">
-            <Nav.Item>
-              <h3>
-                <PiUserCircleGearDuotone />
-              </h3>
-            </Nav.Item>
-            <Nav.Item className="text-nowrap ms-2 d-none d-md-block">
-              Priyom Saha
-            </Nav.Item>
+          <Nav className="ms-auto align-items-center" role="button">
+            <div
+              className={
+                show
+                  ? "btn-group dropdown text-white"
+                  : "btn-group dropstart text-white"
+              }
+            >
+              <button
+                type="button"
+                class="bg-transparent border-0 d-flex align-items-center dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style={{ color: "whitesmoke" }}
+              >
+                <PiUserCircleGearDuotone size={"1.5rem"} />
+                <span className="text-nowrap ms-2 d-none d-md-block">
+                  &nbsp; Priyom Saha
+                </span>
+              </button>
+              <ul class="dropdown-menu">
+                <Container fluid className="w-auto">
+                  <Row>
+                    <Dropdown.Item className="d-flex align-items-center ">
+                      <Col>Edit Profile</Col>
+                      <Col className="d-flex justify-content-end">
+                        <FaUserCircle />
+                      </Col>
+                    </Dropdown.Item>
+                  </Row>
+                  <Dropdown.Divider />
+                  <Row>
+                    <Dropdown.Item className="d-flex align-items-center">
+                      <Col>Log Out</Col>
+                      <Col className="d-flex justify-content-end">
+                        <TbLogout />
+                      </Col>
+                    </Dropdown.Item>
+                  </Row>
+                </Container>
+              </ul>
+            </div>
           </Nav>
         </Container>
       </Navbar>
@@ -61,3 +98,33 @@ function Header(props) {
   );
 }
 export default Header;
+
+// <Dropdown>
+//               <DropdownToggle className="bg-transparent border-0 d-flex align-items-center">
+//                 <PiUserCircleGearDuotone size={"1.5rem"} />
+//                 <span className="text-nowrap ms-2 d-none d-md-block">
+//                   &nbsp; Priyom Saha
+//                 </span>
+//               </DropdownToggle>
+//               <Dropdown.Menu>
+//                 <Container fluid className="w-auto">
+//                   <Row>
+//                     <Dropdown.Item className="d-flex align-items-center">
+//                       <Col>Edit Profile</Col>
+//                       <Col>
+//                         <TbLogout />
+//                       </Col>
+//                     </Dropdown.Item>
+//                   </Row>
+//                   <Dropdown.Divider />
+//                   <Row>
+//                     <Dropdown.Item className="d-flex align-items-center">
+//                       <Col>Log Out</Col>
+//                       <Col>
+//                         <TbLogout />
+//                       </Col>
+//                     </Dropdown.Item>
+//                   </Row>
+//                 </Container>
+//               </Dropdown.Menu>
+// </Dropdown>

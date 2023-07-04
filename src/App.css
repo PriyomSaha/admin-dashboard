@@ -1,5 +1,6 @@
 .App {
   font-family: "Roboto", sans-serif;
+  overflow: hidden;
 }
 .contract{
   max-width: 6vh;
@@ -25,11 +26,11 @@ width:100%
     padding-left: 0;
     padding-right: 0;
   }
-  .scrollable::-webkit-scrollbar {
+  .scrollable::-webkit-scrollbar ,.App::-webkit-scrollbar {
     display: none;
   }
   
-  .scrollable {
+  .scrollable, .App {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
