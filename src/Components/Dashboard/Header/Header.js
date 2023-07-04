@@ -10,6 +10,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { BsSearch } from "react-icons/bs";
 import { TbLogout } from "react-icons/tb";
 import { FaUserCircle } from "react-icons/fa";
+import EditProfile from "./EditProfile";
 
 function Header(props) {
   const [show, setShow] = useState(true);
@@ -19,6 +20,8 @@ function Header(props) {
       setShow(false);
     }
   }, [height]);
+
+  const [modalShow, setModalShow] = useState(false);
 
   return (
     <>
@@ -69,9 +72,9 @@ function Header(props) {
                   &nbsp; Priyom Saha
                 </span>
               </button>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu" data-bs-theme="dark">
                 <Container fluid className="w-auto">
-                  <Row>
+                  <Row onClick={() => setModalShow(true)}>
                     <Dropdown.Item className="d-flex align-items-center ">
                       <Col>Edit Profile</Col>
                       <Col className="d-flex justify-content-end">
@@ -79,6 +82,10 @@ function Header(props) {
                       </Col>
                     </Dropdown.Item>
                   </Row>
+                  <EditProfile
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                  />
                   <Dropdown.Divider />
                   <Row>
                     <Dropdown.Item className="d-flex align-items-center">
