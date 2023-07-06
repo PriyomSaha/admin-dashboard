@@ -1,45 +1,89 @@
-body{
+  body{
   font-family: 'Poppins', sans-serif;
   overflow: hidden;
-}
-.contract{
+  }
+  .contract{
   max-width: 6vh;
   transition: width 20s;
-}
-.expand{
+  }
+  .expand{
   width:100%;
   transition: width 20s;
   }
   .dashboard-side-components{
-    color:white;
-    text-decoration: none;
+  color:white;
+  text-decoration: none;
   }
   .dashboard-side-components:hover{
-background-color:#424649;
-border-radius: 10px;
-width:100%
+  background-color:#424649;
+  border-radius: 10px;
+  width:100%
   }
 
   .remove-default-margin-padding{
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
   }
   .scrollable::-webkit-scrollbar ,.App::-webkit-scrollbar {
-    display: none;
+  display: none;
   }
-  
+
   .scrollable, .App {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
   }
 
   .home-component-header{
-    color: #424649;
+  color: #424649;
   }
   .active{
-background-color: rgb(98, 98, 98);
-border-radius: 10px;
-width:100%
+  background-color: rgb(98, 98, 98);
+  border-radius: 10px;
+  width:100%
   }
+  ul.nav.nav-pills{
+  margin:0;
+  }
+  .nav-pills .nav-item .nav-link{
+  color: black;
+  background-color: rgb(203, 203, 203);
+  padding:6px;
+  }
+  .nav-pills .nav-item .active{
+  background-color: black;
+  color:whitesmoke;
+
+  }
+  .order-nav-active{
+  border-bottom: 5px solid #0671E3;
+  /* transition: all 0.09s ease-in-out; */
+  }
+  .order-status-Completed{
+  background-color: #388e3c;
+  color: whitesmoke;
+  }
+
+  .order-status-Pending{
+  background-color: #01579b;
+  color: whitesmoke;
+  }
+
+  .order-status-Accepted{
+  background-color: #cddc39;
+  color: black;
+  }
+  .order-status-Ready{
+  background-color:  #8bc34a;
+  color: black;
+  }
+  .order-status-Collected{
+    background-color:  #607d8b;
+    color: whitesmoke;
+    }
+    .order-status-Cancelled{
+      background-color:  #b71c1c;
+      color: whitesmoke;
+      }
+         

@@ -8,7 +8,7 @@ import { TbReport } from "react-icons/tb";
 import { VscGraphLine } from "react-icons/vsc";
 import { BiSolidStarHalf, BiSolidShoppingBags } from "react-icons/bi";
 import { BsPeopleFill, BsGraphUpArrow } from "react-icons/bs";
-import { navigations } from "./NavigationProvider";
+import { navigations } from "../Provider/NavigationsProvider";
 
 function FixedSidebar(props) {
   //To display sub menus of Analytics

@@ -62,7 +62,7 @@ function Header(props) {
             >
               <button
                 type="button"
-                class="bg-transparent border-0 d-flex align-items-center dropdown-toggle"
+                className="bg-transparent border-0 d-flex align-items-center dropdown-toggle"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
                 style={{ color: "whitesmoke" }}
@@ -72,7 +72,7 @@ function Header(props) {
                   &nbsp; Priyom Saha
                 </span>
               </button>
-              <ul class="dropdown-menu" data-bs-theme="dark">
+              <ul className="dropdown-menu" data-bs-theme="dark">
                 <Container fluid className="w-auto">
                   <Row onClick={() => setModalShow(true)}>
                     <Dropdown.Item className="d-flex align-items-center ">
