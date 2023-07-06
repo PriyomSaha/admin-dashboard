@@ -33,13 +33,15 @@ function Orders() {
   });
 
   //Set Order Status and it's Background
-  let [prevClass, setPrevClass] = useState(orderNavigations[0]);
+  let [prevClass, setPrevClass] = useState();
 
   let setOrderStatus = (e) => {
     let value = e.target.value;
+    document.getElementById("order-status").classList.remove(prevClass);
     document
       .getElementById("order-status")
-      .classList.replace(prevClass, `order-status-${value}`);
+      .classList.add(`order-status-${value}`);
+
     setPrevClass(`order-status-${value}`);
   };
 
