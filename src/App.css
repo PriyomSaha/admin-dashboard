@@ -79,11 +79,10 @@
   color: black;
   }
   .order-status-Collected{
-    background-color:  #607d8b;
-    color: whitesmoke;
-    }
-    .order-status-Cancelled{
-      background-color:  #b71c1c;
-      color: whitesmoke;
-      }
-         
+  background-color:  #607d8b;
+  color: whitesmoke;
+  }
+  .order-status-Cancelled{
+  background-color:  #b71c1c;
+  color: whitesmoke;
+  }

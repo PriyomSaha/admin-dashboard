@@ -1,16 +1,10 @@
 import { React, useEffect, useState } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  Dropdown,
-  Form,
-  Row,
-  Tab,
-  Table,
-  Tabs,
-} from "react-bootstrap";
-import { orderNavigations, orderStatus } from "../Provider/NavigationsProvider";
+import { Col, Container, Form, Row, Tab, Table, Tabs } from "react-bootstrap";
+import { orderNavigations } from "../Provider/NavigationsProvider";
+import Notes from "./Notes";
+import OrderStatus from "./OrderStatus";
+import { orders } from "../Provider/DummyOrders";
+
 function Orders() {
   let count = 0;
 
@@ -27,23 +21,10 @@ function Orders() {
     }
   };
 
-  //useeffect to add active class to All orders
+  //useeffect to add active class to All orders by default
   useEffect(() => {
     document.getElementById(prevComponent).classList.add("order-nav-active");
   });
-
-  //Set Order Status and it's Background
-  let [prevClass, setPrevClass] = useState();
-
-  let setOrderStatus = (e) => {
-    let value = e.target.value;
-    document.getElementById("order-status").classList.remove(prevClass);
-    document
-      .getElementById("order-status")
-      .classList.add(`order-status-${value}`);
-
-    setPrevClass(`order-status-${value}`);
-  };
 
   return (
     <>
@@ -110,46 +91,24 @@ function Orders() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1154</td>
-                  <td>Mon 3 Jul 7:51 PM</td>
-                  <td>Dharthi Groceries & Super Mart</td>
-                  <td>Neeraj Kaley</td>
-                  <td>1</td>
-                  <td>₹7,112.32</td>
-                  <td>Delivery</td>
-                  <td>cod</td>
-                  <td>
-                    <Form.Select
-                      className="w-auto"
-                      id="order-status"
-                      onChange={(e) => setOrderStatus(e)}
-                    >
-                      {orderStatus.map((value) => (
-                        <option
-                          value={value}
-                          key={value}
-                          style={{ backgroundColor: "white", color: "black" }}
-                        >
-                          {value}
-                        </option>
-                      ))}
-                    </Form.Select>
-                  </td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Larry </td>
-                  <td> Bird</td>
-                  <td>@twitter</td>
-                </tr>
+                {orders.map((value) => (
+                  <tr key={value.id}>
+                    <td>{value.id}</td>
+                    <td>{value.dateTime}</td>
+                    <td>{value.merchant}</td>
+                    <td>{value.customer}</td>
+                    <td>{value.items}</td>
+                    <td>₹{value.total}</td>
+                    <td>{value.type}</td>
+                    <td>{value.payment}</td>
+                    <td>
+                      <OrderStatus status={value.status} id={value.id} />
+                    </td>
+                    <td>
+                      <Notes notes={value.notes} />
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </Table>
           </div>
