@@ -106,32 +106,3 @@ function Header(props) {
 }
 export default Header;
 
-// <Dropdown>
-//               <DropdownToggle className="bg-transparent border-0 d-flex align-items-center">
-//                 <PiUserCircleGearDuotone size={"1.5rem"} />
-//                 <span className="text-nowrap ms-2 d-none d-md-block">
-//                   &nbsp; Priyom Saha
-//                 </span>
-//               </DropdownToggle>
-//               <Dropdown.Menu>
-//                 <Container fluid className="w-auto">
-//                   <Row>
-//                     <Dropdown.Item className="d-flex align-items-center">
-//                       <Col>Edit Profile</Col>
-//                       <Col>
-//                         <TbLogout />
-//                       </Col>
-//                     </Dropdown.Item>
-//                   </Row>
-//                   <Dropdown.Divider />
-//                   <Row>
-//                     <Dropdown.Item className="d-flex align-items-center">
-//                       <Col>Log Out</Col>
-//                       <Col>
-//                         <TbLogout />
-//                       </Col>
-//                     </Dropdown.Item>
-//                   </Row>
-//                 </Container>
-//               </Dropdown.Menu>
-// </Dropdown>

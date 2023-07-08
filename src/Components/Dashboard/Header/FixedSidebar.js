@@ -40,7 +40,10 @@ function FixedSidebar(props) {
   });
   return (
     <>
-      <Container fluid className="remove-default-margin-padding position-start">
+      <Container
+        fluid
+        className="remove-default-margin-padding position-start sticky-top"
+      >
         <Row>
           <Col className="min-vh-100 w-auto bg-dark col-auto text-white text-nowrap">
             <div className={props.show ? "pt-3 expand" : "pt-3 contract"}>

@@ -6,8 +6,6 @@ import OrderStatus from "./OrderStatus";
 import { orders } from "../Provider/DummyOrders";
 
 function Orders() {
-  let count = 0;
-
   let [prevComponent, setPrevComponent] = useState(orderNavigations[0]);
 
   // func to add curr. active class and remove prev. active class
@@ -21,20 +19,41 @@ function Orders() {
     }
   };
 
-  //useeffect to add active class to All orders by default
+  let [counts, setCounts] = useState({
+    All: orders.length,
+    Pending: 0,
+    Accepted: 0,
+    Ready: 0,
+    Collected: 0,
+    Completed: 0,
+    Cancelled: 0,
+  });
+
+  useEffect(() => {
+    const newCounts = {
+      ...counts,
+    };
+    for (const order of orders) {
+      const key = order.status;
+      newCounts[key]++;
+    }
+    setCounts(newCounts);
+  }, []);
+
+  //useeffect to add active class to All orders by default and get count of each order status
   useEffect(() => {
     document.getElementById(prevComponent).classList.add("order-nav-active");
-  });
+  }, []);
 
   return (
     <>
-      <Row className="home-component-header">
-        <span className="fw-bold text-capitalize fs-2 shadow py-2 px-3 mb-4 bg-body-tertiary rounded">
+      <Row className="home-component-header mb-5">
+        <span className="fw-bold text-capitalize fs-2 shadow py-2 px-3 mb-4 bg-body-tertiary rounded position-fixed">
           Orders
         </span>
       </Row>
-      <Row className="overflow-auto scrollable">
-        <Col md={4} className="remove-default-margin-padding">
+      <Row className="overflow-auto scrollable pt-5">
+        <Col md={4}>
           <Tabs defaultActiveKey="All" className="mb-3" variant="pills">
             <Tab eventKey="All" title="All orders" />
             <Tab eventKey="Scheduled" title="Scheduled" />
@@ -62,7 +81,7 @@ function Orders() {
       <Row className="">
         <Container fluid>
           <div className="overflow-auto p-2 mt-1 d-flex text-nowrap border border-secondary rounded-top border-bottom-0">
-            {orderNavigations.map((nav) => (
+            {orderNavigations.map((nav, i) => (
               <div
                 className="w-auto px-4 text-muted fw-medium d-flex pb-2 mt-2"
                 id={nav}
@@ -70,7 +89,7 @@ function Orders() {
                 onClick={() => setNavigation(nav)}
                 role="button"
               >
-                {nav} ({count++})
+                {nav} ({counts[nav]})
               </div>
             ))}
           </div>
@@ -105,7 +124,7 @@ function Orders() {
                       <OrderStatus status={value.status} id={value.id} />
                     </td>
                     <td>
-                      <Notes notes={value.notes} />
+                      <Notes notes={value.notes} id={value.id} />
                     </td>
                   </tr>
                 ))}

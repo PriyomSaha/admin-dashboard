@@ -1,6 +1,6 @@
-  body{
+body{
   font-family: 'Poppins', sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
   }
   .contract{
   max-width: 6vh;
@@ -26,11 +26,11 @@
   padding-left: 0;
   padding-right: 0;
   }
-  .scrollable::-webkit-scrollbar ,.App::-webkit-scrollbar {
+  .scrollable::-webkit-scrollbar  {
   display: none;
   }
 
-  .scrollable, .App {
+  .scrollable {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
   }

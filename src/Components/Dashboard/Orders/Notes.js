@@ -38,7 +38,7 @@ function Notes(props) {
           <Modal.Title>Add Order Notes</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="mb-3">Order id : 11123</div>
+          <div className="mb-3">Order id : {props.id}</div>
           <Form.Control
             as="textarea"
             placeholder="Write anything related to this order... "
